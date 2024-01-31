@@ -1,0 +1,20 @@
+{
+  "name": "next-movie",
+  "version": "1.0.0",
+  "description": "Next JS 12 App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Hemant Dutta",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "eslint-config-next": "^12.3.4",
+    "next": "^12.3.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

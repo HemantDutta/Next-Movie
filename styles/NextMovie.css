@@ -1,0 +1,210 @@
+/*Global Stylesheet*/
+
+/*Main*/
+
+:root {
+    --clr-sec: #FF9843;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+
+.sixty-four {
+    font-family: "Sixtyfour", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "BLED" 0,
+    "SCAN" 0;
+}
+
+.head-style {
+    font-size: 32px;
+}
+
+.big-head-style {
+    font-size: 56px;
+}
+
+.text-style {
+    font-size: 18px;
+}
+
+.big-text-style {
+    font-size: 24px;
+}
+
+/*Main End*/
+
+/*Container*/
+
+.container {
+    padding: 0 76px;
+    position: relative;
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+        padding: 0 56px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .container {
+        padding: 0 32px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        padding: 0 16px;
+    }
+}
+
+/*Container End*/
+
+/*==========Navbar==========*/
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 999;
+}
+
+nav .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+nav .navbar-container .left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+nav .navbar-container .right ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+nav .navbar-container .ham {
+    display: none;
+    gap: 5px;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+nav .navbar-container .ham span {
+    height: 2px;
+    background-color: #000000;
+    width: 20px;
+    transition: all 1.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+nav .navbar-container .ham.active span:nth-child(1) {
+    rotate: 405deg;
+    translate: 0 7px;
+}
+
+nav .navbar-container .ham.active span:nth-child(3) {
+    rotate: -405deg;
+    translate: 0 -7px;
+}
+
+nav .navbar-container .ham.active span:nth-child(2) {
+    opacity: 0;
+}
+
+@media screen and (max-width: 991px) {
+    nav .navbar-container .right {
+        display: none;
+    }
+
+    nav .navbar-container .ham {
+        display: flex;
+    }
+}
+
+/*==========Navbar End==========*/
+
+/*==========Movie Banner==========*/
+
+.mb {
+    margin: 150px 0 100px;
+}
+
+.mb .mb-container {
+    position: relative;
+    border-radius: 50px;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    padding: 32px;
+}
+
+.mb .mb-container .abs-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mb .mb-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.9), transparent);
+    z-index: 102;
+}
+
+.mb .mb-container .content {
+    position: relative;
+    z-index: 105;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    width: 60%;
+    gap: 5px;
+}
+
+.mb .mb-container .content .head {
+    color: var(--clr-sec);
+}
+
+@media screen and (max-width: 810px) {
+    .mb .mb-container .content {
+        width: 80%;
+    }
+}
+
+/*==========Movie Banner End==========*/
