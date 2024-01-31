@@ -67,6 +67,44 @@ body, html {
     text-align: center;
 }
 
+.movie-item {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+.movie-item .poster {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.movie-item .poster img {
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.movie-item .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    background-color: #000000;
+    height: 150px;
+    color: white;
+}
+
+.movie-item .content .title {
+    color: var(--clr-sec);
+}
+
 /*Main End*/
 
 /*Container*/
@@ -199,7 +237,7 @@ nav .navbar-container .ham.active span:nth-child(2) {
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.9), transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
     z-index: 102;
 }
 
@@ -226,3 +264,32 @@ nav .navbar-container .ham.active span:nth-child(2) {
 }
 
 /*==========Movie Banner End==========*/
+
+/*==========Genre Grid==========*/
+
+.gg {
+    margin: 100px 0;
+}
+
+.gg .gg-container {
+    padding: 32px;
+    border-radius: 50px;
+}
+
+.gg .gg-container .head {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: black;
+}
+
+.gg .gg-container .grid {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+/*==========Genre Grid End==========*/
