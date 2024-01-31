@@ -39,11 +39,6 @@ export default function Home({banner}) {
         })
     }, [])
 
-    //Log Genre Data
-    useEffect(()=>{
-        console.log(genreData);
-    },[genreData])
-
     return (
         <>
             <Head>
@@ -93,7 +88,6 @@ export async function getStaticProps() {
         const response = await axios.request(options);
         response.data.results.every(x => {
             if (x.primaryImage) {
-                console.log(x);
                 banner = x;
                 return false;
             } else return true;
