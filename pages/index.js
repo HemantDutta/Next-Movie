@@ -2,8 +2,48 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import MovieBanner from "../components/MovieBanner";
 import axios from "axios";
+import GenreGrid from "../components/GenreGrid";
+import {useEffect, useState} from "react";
+import Loader from "../components/Loader";
 
 export default function Home({banner}) {
+
+    //States
+    const [genreData, setGenreData] = useState([]);
+
+    //Fetch Genres
+    useEffect(() => {
+        ['Drama', 'Action', 'Horror'].map(async (value) => {
+            const options = {
+                method: 'GET',
+                url: 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',
+                params: {genre: value},
+                headers: {
+                    'X-RapidAPI-Key': '86cef1b198mshf81c79b973c9488p1b2cc2jsn91f06dae0c9e',
+                    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await axios.request(options);
+                setGenreData(curr=> [
+                    ...curr,
+                    {
+                        genre: value,
+                        data: response.data.results,
+                    }
+                ])
+            } catch (error) {
+                console.error(error);
+            }
+        })
+    }, [])
+
+    //Log Genre Data
+    useEffect(()=>{
+        console.log(genreData);
+    },[genreData])
+
     return (
         <>
             <Head>
@@ -19,6 +59,19 @@ export default function Home({banner}) {
             </Head>
             <Navbar/>
             <MovieBanner title="Featured" banner={banner}/>
+            {
+                genreData.length === 3 &&
+                genreData.map((value, index) => {
+                    return (
+                        <GenreGrid key={index} genre={value.genre} data={value.data}/>
+                    )
+
+                })
+            }
+            {
+                genreData.length === 0 &&
+                <Loader/>
+            }
         </>
     )
 }
@@ -39,17 +92,17 @@ export async function getStaticProps() {
     try {
         const response = await axios.request(options);
         response.data.results.every(x => {
-            if(x.primaryImage) {
+            if (x.primaryImage) {
                 console.log(x);
                 banner = x;
                 return false;
-            }
-            else return true;
+            } else return true;
         })
     } catch (error) {
         console.error(error);
     }
     //Fetch Featured Banner End ++
+
 
     return {
         props: {
