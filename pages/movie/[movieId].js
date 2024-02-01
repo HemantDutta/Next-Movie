@@ -4,6 +4,7 @@ import Loader from "../../components/Loader";
 import Navbar from "../../components/Navbar";
 import MovieBanner from "../../components/MovieBanner";
 import Head from "next/head";
+import Footer from "../../components/Footer";
 
 export default function MoviePage({data}) {
 
@@ -50,6 +51,7 @@ export default function MoviePage({data}) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

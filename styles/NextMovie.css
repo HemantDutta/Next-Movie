@@ -501,6 +501,7 @@ aside .aside-container ul li a:hover {
 
 .search .search-container {
     margin-top: 200px;
+    min-height: 100vh;
 }
 
 .search .search-container .head {
@@ -567,3 +568,77 @@ aside .aside-container ul li a:hover {
 }
 
 /*==========Search Page End==========*/
+
+/*==========Footer==========*/
+
+footer {
+    position: relative;
+    z-index: 115;
+    background-color: black;
+}
+
+footer .footer-container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 32px 16px;
+    gap: 32px;
+}
+
+footer .footer-container .brand {
+    background: linear-gradient(to top, var(--clr-sec), white);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/3;
+}
+
+footer .footer-container .links {
+    grid-column: 3/-1;
+}
+
+footer .footer-container .links ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+footer .footer-container .links ul a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+footer .footer-container .links ul a:hover {
+    color: var(--clr-sec);
+}
+
+footer .footer-container .bottom {
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+footer .footer-container .bottom span {
+    color: white;
+}
+
+footer .footer-container .bottom span a {
+    color: var(--clr-sec);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 420px) {
+    footer .footer-container .links, footer .footer-container .brand {
+        grid-column: 1/-1;
+    }
+
+    footer .footer-container {
+        place-items: flex-start;
+    }
+
+}
+/*==========Footer End==========*/

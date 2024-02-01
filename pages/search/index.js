@@ -4,6 +4,7 @@ import {useState} from "react";
 import axios from "axios";
 import Loader from "../../components/Loader";
 import GenreGrid from "../../components/GenreGrid";
+import Footer from "../../components/Footer";
 
 export default function Search() {
 
@@ -85,13 +86,14 @@ export default function Search() {
                         </>
                     }
                     {
-                        !loader && data.length === 0 &&
+                        !loader && show && data.length === 0 &&
                         <>
                             <span className="no-data">Sorry, we couldn't find any results for {show}</span>
                         </>
                     }
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
