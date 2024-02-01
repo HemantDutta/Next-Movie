@@ -163,7 +163,7 @@ nav {
     top: 0;
     left: 0;
     width: 100vw;
-    z-index: 999;
+    z-index: 1100;
     transition: transform 0.6s cubic-bezier(0.87, 0, 0.13, 1);
 }
 
@@ -180,6 +180,11 @@ nav .navbar-container {
     background-color: #fff;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
+    transition: background-color 0.6s ease;
+}
+
+nav.active .navbar-container {
+    background-color: transparent;
 }
 
 nav .navbar-container .left {
@@ -189,6 +194,7 @@ nav .navbar-container .left {
     background: linear-gradient(to top, var(--clr-sec), black);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    cursor: pointer;
 }
 
 nav .navbar-container .right ul {
@@ -236,6 +242,10 @@ nav .navbar-container .ham span {
     transition: all 1.2s cubic-bezier(0.87, 0, 0.13, 1);
 }
 
+nav .navbar-container .ham.active span {
+    background-color: var(--clr-sec);
+}
+
 nav .navbar-container .ham.active span:nth-child(1) {
     rotate: 405deg;
     translate: 0 7px;
@@ -261,6 +271,76 @@ nav .navbar-container .ham.active span:nth-child(2) {
 }
 
 /*==========Navbar End==========*/
+
+/*==========Overflow==========*/
+
+.overflow-nav {
+    position: fixed;
+    margin: auto;
+    inset: 0;
+    width: 200vw;
+    height: 200vh;
+    background-color: rgba(0,0,0,0.8);
+    transition: transform 0.6s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+    z-index: 1000;
+    transform: translateX(100%);
+    opacity: 0;
+    border-radius: 100%;
+}
+
+.overflow-nav.active {
+    transform: translateX(-50%);
+    opacity: 1;
+}
+
+/*==========Overflow End==========*/
+
+/*==========Aside==========*/
+
+aside {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 60vw;
+    background-color: black;
+    z-index: 1000;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    transition: transform 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+    transform: translateX(100%);
+}
+
+aside.active {
+    transform: translateX(0);
+}
+
+aside .aside-container {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+aside .aside-container ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+aside .aside-container ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+aside .aside-container ul li a:hover {
+    color: var(--clr-sec);
+}
+
+/*==========Aside End==========*/
 
 /*==========Movie Banner==========*/
 
@@ -345,8 +425,14 @@ nav .navbar-container .ham.active span:nth-child(2) {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 32px;
+}
+
+@media screen and (max-width: 991px) {
+    .gg .gg-container .grid {
+        justify-content: center;
+    }
 }
 
 /*==========Genre Grid End==========*/

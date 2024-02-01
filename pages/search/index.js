@@ -84,6 +84,12 @@ export default function Search() {
                             <GenreGrid data={data} genre={`Searched for ${show}`} search={true}/>
                         </>
                     }
+                    {
+                        !loader && data.length === 0 &&
+                        <>
+                            <span className="no-data">Sorry, we couldn't find any results for {show}</span>
+                        </>
+                    }
                 </div>
             </div>
         </>
