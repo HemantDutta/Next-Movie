@@ -1,4 +1,5 @@
 import {useEffect, useRef} from "react";
+import Link from "next/link";
 
 export default function Navbar() {
 
@@ -48,7 +49,11 @@ export default function Navbar() {
                     </div>
                     <div className="right">
                         <ul className="text-style">
-                            <li><a href="#" className="text-style">Search</a></li>
+                            <li>
+                                <Link href={"/search"}>
+                                    <a className="text-style">Search</a>
+                                </Link>
+                            </li>
                             <li><a href="#" className="text-style">Contact</a></li>
                             <li><a href="#" className="text-style">About</a></li>
                         </ul>
@@ -58,6 +63,9 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+            <aside>
+
+            </aside>
         </>
     )
 }

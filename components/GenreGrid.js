@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard";
 
-export default function GenreGrid({genre, data}) {
+export default function GenreGrid({genre, data, search}) {
 
     //Static Data
     const genreText = {
@@ -11,15 +11,24 @@ export default function GenreGrid({genre, data}) {
 
     return (
         <>
-            <div className="gg container">
+            <div className={`gg ${search?"":"container"}`}>
                 <div className={`gg-container ${genre}`}>
                     <div className="head">
                         <span className="genre head-style sixty-four">{genre}</span>
-                        <span className="tag text-style">{genreText[genre]}</span>
+                        <span className="tag text-style">{genreText[genre] || data.filter(value=> value.primaryImage!=null).length+" results found..."}</span>
                     </div>
-                    <div className="grid">
+                    <div className="grid" style={{justifyContent: `${search?"":"space-between"}`}}>
                         {
+                            !search &&
                             data.filter(value=> value.primaryImage!=null).slice(0,4).map((value, index) => {
+                                return (
+                                    <MovieCard value={value} key={index}/>
+                                )
+                            })
+                        }
+                        {
+                            search &&
+                            data.filter(value=> value.primaryImage!=null).map((value, index) => {
                                 return (
                                     <MovieCard value={value} key={index}/>
                                 )

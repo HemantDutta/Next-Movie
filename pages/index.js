@@ -43,7 +43,7 @@ export default function Home({banner}) {
         <>
             <Head>
                 <title>Next Movie</title>
-                <link rel="icon" href="../public/favicon.png" sizes="any"/>
+                <link rel="icon" href="favicon.png" sizes="any"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
@@ -58,7 +58,7 @@ export default function Home({banner}) {
                 genreData.length > 0 &&
                 genreData.map((value, index) => {
                     return (
-                        <GenreGrid key={index} genre={value.genre} data={value.data}/>
+                        <GenreGrid key={index} genre={value.genre} data={value.data} search={false}/>
                     )
 
                 })
