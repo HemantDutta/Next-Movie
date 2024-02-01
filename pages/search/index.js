@@ -9,6 +9,7 @@ export default function Search() {
 
     //States
     const [search, setSearch] = useState('');
+    const [show, setShow] = useState('');
     const [data, setData] = useState([]);
     const [loader, setLoader] = useState(false);
 
@@ -19,8 +20,13 @@ export default function Search() {
         setLoader(true);
 
         //Create Search String
-        const temp = x ? x :search.toLowerCase().replace(" ", "%20");
+        const temp = x ? x : search.toLowerCase().replace(" ", "%20");
 
+        //Set Show State
+        const showString = x ? x.replace("%20", " ") : search;
+        setShow(showString);
+
+        //API Call
         const options = {
             method: 'GET',
             url: `https://moviesdatabase.p.rapidapi.com/titles/search/keyword/${temp}`,
@@ -32,7 +38,6 @@ export default function Search() {
 
         try {
             const response = await axios.request(options);
-            console.log(response.data.results);
             setData(response.data.results);
             setLoader(false);
         } catch (error) {
@@ -59,10 +64,10 @@ export default function Search() {
                 <div className="search-container">
                     <div className="head">
                         <i className="fa-solid fa-magnifying-glass"/>
-                        <input type="search" name="search" id="search" placeholder="Search for movies, tv series and more..." onChange={(e) => {
+                        <input type="search" name="search" id="search" placeholder="Search for movies and  tv series..." onChange={(e) => {
                             setSearch(e.target.value)
                         }}/>
-                        <button className="click" type="button" onClick={fetchSearchResults}>Search</button>
+                        <button className="click" type="button" onClick={()=>{fetchSearchResults('')}}>Search</button>
                     </div>
                     <div className="chip-bar">
                         <span className="chip" onClick={()=>{fetchSearchResults("spider%20man")}}>Spiderman</span>
@@ -76,7 +81,7 @@ export default function Search() {
                     {
                         !loader && data.length>0 &&
                         <>
-                            <GenreGrid data={data} genre={`Searched for ${search}`} search={true}/>
+                            <GenreGrid data={data} genre={`Searched for ${show}`} search={true}/>
                         </>
                     }
                 </div>
