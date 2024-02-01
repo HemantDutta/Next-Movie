@@ -10,19 +10,19 @@ export default function ErrorPage() {
     const [timer, setTimer] = useState(5);
 
     //Run Timer
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            setTimer(timer=> timer-1);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimer(timer => timer - 1);
         }, 1000)
 
-        return ()=> clearInterval(interval)
-    },[])
+        return () => clearInterval(interval)
+    }, [])
 
-    if(timer < 1) {
+    if (timer <= 1) {
         router.replace("/");
     }
 
-    return(
+    return (
         <>
             <div className="error-page container">
                 <div className="error-container">

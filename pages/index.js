@@ -55,7 +55,7 @@ export default function Home({banner}) {
             <Navbar/>
             <MovieBanner title="Featured" banner={banner}/>
             {
-                genreData.length === 3 &&
+                genreData.length > 0 &&
                 genreData.map((value, index) => {
                     return (
                         <GenreGrid key={index} genre={value.genre} data={value.data}/>
@@ -65,7 +65,10 @@ export default function Home({banner}) {
             }
             {
                 genreData.length === 0 &&
-                <Loader/>
+                <>
+                    <Loader/>
+                </>
+
             }
         </>
     )

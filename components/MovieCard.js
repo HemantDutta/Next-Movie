@@ -11,7 +11,7 @@ export default function MovieCard({value}) {
             </div>
             <div className="content">
                 <span className="title big-text-style">{value.titleText.text}</span>
-                <span className="tag">{value.primaryImage.caption.plainText}</span>
+                <span className="tag">{value.primaryImage.caption.plainText.substring(0,25) + "..."}</span>
             </div>
         </div>
     )

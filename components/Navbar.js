@@ -20,12 +20,16 @@ export default function Navbar() {
         let scrollY = window.scrollY;
         useEffect(() => {
             const hideNav = () => {
-                if (window.scrollY > scrollY) {
-                    nav.current.classList.add("hide");
-                } else {
-                    nav.current.classList.remove("hide");
+                if (nav.current !== null)
+                {
+                    if (window.scrollY > scrollY) {
+                        nav.current.classList.add("hide");
+                    } else {
+                        nav.current.classList.remove("hide");
+                    }
+                    scrollY = window.scrollY;
                 }
-                scrollY = window.scrollY;
+
             }
 
             window.addEventListener("scroll", hideNav);
@@ -44,9 +48,9 @@ export default function Navbar() {
                     </div>
                     <div className="right">
                         <ul className="text-style">
-                            <li>Search</li>
-                            <li>Contact</li>
-                            <li>About</li>
+                            <li><a href="#" className="text-style">Search</a></li>
+                            <li><a href="#" className="text-style">Contact</a></li>
+                            <li><a href="#" className="text-style">About</a></li>
                         </ul>
                     </div>
                     <div className="ham" ref={ham} onClick={toggleSidebar}>
