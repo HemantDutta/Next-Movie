@@ -1,6 +1,6 @@
 import Navbar from "../../components/Navbar";
 import Head from "next/head";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import Loader from "../../components/Loader";
 import GenreGrid from "../../components/GenreGrid";
@@ -13,6 +13,33 @@ export default function Search() {
     const [show, setShow] = useState('');
     const [data, setData] = useState([]);
     const [loader, setLoader] = useState(false);
+
+    //Refs
+    const input = useRef(null);
+    const button = useRef(null);
+
+    //Enter Key Listener
+    useEffect(() => {
+
+        const enterSearch = (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                button.current.click();
+            }
+        }
+
+        if (input.current !== null) {
+            input.current.addEventListener("keypress", (e) => {
+                enterSearch(e)
+            })
+        }
+
+        return () => {
+            input.current.removeEventListener("keypress", (e) => {
+                enterSearch(e)
+            })
+        }
+    }, [])
 
     //Fetch Search Results
     async function fetchSearchResults(x) {
@@ -65,22 +92,31 @@ export default function Search() {
                 <div className="search-container">
                     <div className="head">
                         <i className="fa-solid fa-magnifying-glass"/>
-                        <input type="search" name="search" id="search" placeholder="Search for movies and  tv series..." onChange={(e) => {
+                        <input ref={input} type="search" name="search" id="search" placeholder="Search for movies and  tv series..." onChange={(e) => {
                             setSearch(e.target.value)
                         }}/>
-                        <button className="click" type="button" onClick={()=>{fetchSearchResults('')}}>Search</button>
+                        <button ref={button} className="click" type="button" onClick={() => {
+                            fetchSearchResults('')
+                        }}>Search
+                        </button>
                     </div>
                     <div className="chip-bar">
-                        <span className="chip" onClick={()=>{fetchSearchResults("spider%20man")}}>Spiderman</span>
-                        <span className="chip" onClick={()=>{fetchSearchResults("iron%20man")}}>Iron Man</span>
-                        <span className="chip" onClick={()=>{fetchSearchResults("interstellar")}}>Interstellar</span>
+                        <span className="chip" onClick={() => {
+                            fetchSearchResults("spider%20man")
+                        }}>Spiderman</span>
+                        <span className="chip" onClick={() => {
+                            fetchSearchResults("iron%20man")
+                        }}>Iron Man</span>
+                        <span className="chip" onClick={() => {
+                            fetchSearchResults("interstellar")
+                        }}>Interstellar</span>
                     </div>
                     {
                         loader &&
                         <Loader/>
                     }
                     {
-                        !loader && data.length>0 &&
+                        !loader && data.length > 0 &&
                         <>
                             <GenreGrid data={data} genre={`Searched for ${show}`} search={true}/>
                         </>
