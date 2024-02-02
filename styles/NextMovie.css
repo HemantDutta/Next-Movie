@@ -290,7 +290,7 @@ nav .navbar-container .ham.active span:nth-child(2) {
     inset: 0;
     width: 200vw;
     height: 200vh;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     transition: transform 0.6s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.6s cubic-bezier(0.87, 0, 0.13, 1);
     z-index: 1000;
     transform: translateX(100%);
@@ -621,7 +621,7 @@ aside .aside-container ul li a:hover {
     gap: 10px;
 }
 
-.contact-page .contact-grid .phone .content ul a, .contact-page .contact-grid .github .content ul a{
+.contact-page .contact-grid .phone .content ul a, .contact-page .contact-grid .github .content ul a {
     color: black;
     transition: all 0.2s ease;
 }
@@ -651,6 +651,92 @@ aside .aside-container ul li a:hover {
 }
 
 /*==========Contact Page End==========*/
+
+/*==========About Page==========*/
+
+.about-page {
+    position: relative;
+    margin-top: 150px;
+}
+
+.about-page .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 76px;
+    margin-bottom: 100px;
+}
+
+.about-page .about-grid .intro {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.about-page .about-grid .intro .left {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about-page .about-grid .intro .left a {
+    padding: 10px 24px;
+    background-color: #000000;
+    width: max-content;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+}
+
+.about-page .about-grid .intro .left a i {
+    color: var(--clr-sec);
+}
+
+.about-page .about-grid .intro .right {
+    flex-basis: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.about-page .about-grid .intro .right img {
+    object-fit: contain;
+    width: 30vw;
+}
+
+.about-page .about-grid .learn {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.about-page .about-grid .learn .top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about-page .about-grid .learn .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.about-page .about-grid .learn .bottom .chip {
+    padding: 10px 24px;
+    background-color: #000000;
+    border-radius: 50px;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.about-page .about-grid .learn .bottom .chip:hover {
+    color: var(--clr-sec);
+    scale: 1.05;
+}
+
+/*==========About Page End==========*/
 
 /*==========Footer==========*/
 
@@ -724,4 +810,5 @@ footer .footer-container .bottom span a {
     }
 
 }
+
 /*==========Footer End==========*/
