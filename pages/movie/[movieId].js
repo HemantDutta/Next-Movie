@@ -9,7 +9,6 @@ import Footer from "../../components/Footer";
 export default function MoviePage({data}) {
 
     const router = useRouter();
-    const id = router.query.movieId;
 
     if (router.isFallback) {
         return <Loader/>

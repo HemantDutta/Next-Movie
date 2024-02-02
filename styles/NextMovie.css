@@ -49,6 +49,16 @@ body, html {
     font-size: 24px;
 }
 
+.text-grad {
+    background: linear-gradient(to top, var(--clr-sec), black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.clr-sec {
+    color: var(--clr-sec);
+}
+
 @media screen and (max-width: 500px) {
     .big-head-style {
         font-size: 36px;
@@ -569,6 +579,79 @@ aside .aside-container ul li a:hover {
 
 /*==========Search Page End==========*/
 
+/*==========Contact Page==========*/
+
+.contact-page {
+    position: relative;
+}
+
+.contact-page .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 50px;
+}
+
+.contact-page .contact-grid .email {
+    grid-column: 1/-1;
+    border-bottom: 1px solid black;
+}
+
+.contact-page .contact-grid .email .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 768px;
+}
+
+.contact-page .contact-grid .phone {
+    grid-column: 1/2;
+}
+
+.contact-page .contact-grid .phone .content, .contact-page .contact-grid .github .content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-page .contact-grid .phone .content ul, .contact-page .contact-grid .github .content ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-page .contact-grid .phone .content ul a, .contact-page .contact-grid .github .content ul a{
+    color: black;
+    transition: all 0.2s ease;
+}
+
+.contact-page .contact-grid .phone .content ul a:hover, .contact-page .contact-grid .github .content ul a:hover {
+    color: var(--clr-sec);
+}
+
+.contact-page .contact-grid .github {
+    grid-column: 2/-1;
+}
+
+@media screen and (max-width: 500px) {
+    .contact-page .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-page .contact-grid .github, .contact-page .contact-grid .phone {
+        grid-column: 1/-1;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .contact-page .contact-grid .email .content .head:nth-child(2) {
+        font-size: 8vw;
+    }
+}
+
+/*==========Contact Page End==========*/
+
 /*==========Footer==========*/
 
 footer {
@@ -581,7 +664,7 @@ footer .footer-container {
     display: grid;
     place-items: center;
     grid-template-columns: repeat(4, 1fr);
-    padding: 32px 16px;
+    padding: 76px 16px 32px;
     gap: 32px;
 }
 
