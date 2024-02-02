@@ -728,12 +728,23 @@ aside .aside-container ul li a:hover {
     background-color: #000000;
     border-radius: 50px;
     color: white;
+    text-align: center;
     transition: all 0.2s ease;
 }
 
 .about-page .about-grid .learn .bottom .chip:hover {
     color: var(--clr-sec);
     scale: 1.05;
+}
+
+@media screen and (max-width: 991px) {
+    .about-page .about-grid .intro {
+        flex-direction: column-reverse;
+    }
+
+    .about-page .about-grid .intro .right img {
+        width: 60vw;
+    }
 }
 
 /*==========About Page End==========*/
