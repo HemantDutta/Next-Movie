@@ -33,12 +33,6 @@ export default function Search() {
                 enterSearch(e)
             })
         }
-
-        return () => {
-            input.current.removeEventListener("keypress", (e) => {
-                enterSearch(e)
-            })
-        }
     }, [])
 
     //Fetch Search Results
