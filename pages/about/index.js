@@ -7,7 +7,7 @@ export default function About() {
         <>
             <Navbar/>
             <Head>
-                <title>Contact Us | Next Movie</title>
+                <title>About | Next Movie</title>
                 <link rel="icon" href="favicon.png" sizes="any"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -24,7 +24,7 @@ export default function About() {
                         <div className="left">
                             <span className="head sixty-four big-head-style text-grad">Next Movie</span>
                             <span className="tag">Hey there! Welcome to Next Movie, a cool little project I put together to get hands-on with <span className="clr-sec">Next.js 12</span>. I wanted to dive into the world of dynamic web apps. So, I hooked up this project with a movie database API by Adriano Massimo to bring you a taste of what Next.js can do. With Next Movie, we're all about exploring movies in a fun and interactive way.</span>
-                            <a href="https://github.com/HemantDutta" rel="noreferrer" target="_blank" className="cta click"><i className="fa-brands fa-github"/>&nbsp;Check out the repo</a>
+                            <a href="https://github.com/HemantDutta/Next-Movie" rel="noreferrer" target="_blank" className="cta click"><i className="fa-brands fa-github"/>&nbsp;Check out the repo</a>
                         </div>
                         <div className="right">
                             <img src="favicon.png" alt="Next Movie Logo"/>
